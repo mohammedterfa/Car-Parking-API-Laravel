@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\Api\V1\Auth;
+use App\Http\Controllers\Api\V1\ParkingController;
 use App\Http\Controllers\Api\V1\VehicleController;
 use App\Http\Controllers\Api\V1\ZoneController;
 
@@ -36,4 +37,5 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('auth/logout', Auth\LogoutController::class);
 
     Route::apiResource('vehicles', VehicleController::class);
+    Route::post('parking/start', [ParkingController::class, 'start']);
 });
