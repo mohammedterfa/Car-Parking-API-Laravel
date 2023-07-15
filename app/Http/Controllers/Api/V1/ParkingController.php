@@ -39,4 +39,15 @@ class ParkingController extends Controller
     {
         return ParkingResource::make($parking);
     }
+
+
+    public function stop(Parking $parking)
+    {
+        $parking->update([
+            'stop_time' => now(),
+        ]);
+
+
+        return ParkingResource::make($parking);
+    }
 }
